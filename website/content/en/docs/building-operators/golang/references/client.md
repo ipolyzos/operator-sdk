@@ -192,10 +192,10 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 ```
 
-[list-options]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#ListOptions
-[matching-labels]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#MatchingLabels
-[matching-fields]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#MatchingFields
-[in-namespace]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#InNamespace
+[list-options]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#ListOptions
+[matching-labels]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#MatchingLabels
+[matching-fields]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#MatchingFields
+[in-namespace]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#InNamespace
 
 #### Create
 
@@ -229,7 +229,7 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 ```
 
-[create-options]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#CreateOptions
+[create-options]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#CreateOptions
 
 #### Update
 
@@ -268,14 +268,14 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 ```
 
-[update-options]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#UpdateOptions
+[update-options]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#UpdateOptions
 
 #### Patch
 
 ```Go
 // Patch patches the given obj in the Kubernetes cluster. obj must be a
 // struct pointer so that obj can be updated with the content returned by the Server.
-func (c Client) Patch(ctx context.Context, obj client.Object, patch client.Patch, opts ...client.UpdateOption) error
+func (c Client) Patch(ctx context.Context, obj client.Object, patch client.Patch, opts ...client.PatchOption) error
 ```
 
 A `client.PatchOption` is an interface that sets [`client.PatchOptions`][patch-options] fields. A `client.PatchOption` is created by using one of the provided implementations: [`DryRunAll`][dry-run-all], [`ForceOwnership`][force-ownership]. Generally these options are not needed.
@@ -308,9 +308,9 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 ```
 
-[patch-options]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#PatchOption
-[dry-run-all]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#DryRunAll
-[force-ownership]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#ForceOwnership
+[patch-options]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#PatchOption
+[dry-run-all]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#DryRunAll
+[force-ownership]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#ForceOwnership
 
 ##### Updating Status Subresource
 
@@ -359,7 +359,7 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 ```
 
-[status-writer]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#StatusWriter
+[status-writer]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#StatusWriter
 
 #### Delete
 
@@ -399,10 +399,10 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 ```
 
-[delete-opts]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#DeleteOptions
-[grace-period-seconds]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#GracePeriodSeconds
-[preconditions]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#Preconditions
-[propagation-policy]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#PropagationPolicy
+[delete-opts]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#DeleteOptions
+[grace-period-seconds]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#GracePeriodSeconds
+[preconditions]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#Preconditions
+[propagation-policy]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#PropagationPolicy
 
 #### DeleteAllOf
 
@@ -443,7 +443,7 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 }
 ```
 
-[deleteallof-opts]:https://godoc.org/sigs.k8s.io/controller-runtime/pkg/client#DeleteAllOfOptions
+[deleteallof-opts]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#DeleteAllOfOptions
 
 ### Example usage
 
@@ -496,7 +496,7 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
             }
             return ctrl.Result{Requeue: true}, nil
         } else {
-            return ctrl.Result{}, err            
+            return ctrl.Result{}, err
         }
     }
 
@@ -582,12 +582,12 @@ func labelsForApp(name string) map[string]string {
 
 [memcached-testdata]:https://github.com/operator-framework/operator-sdk/tree/master/testdata/go/v3/memcached-operator
 [repo-controller-runtime]:https://github.com/kubernetes-sigs/controller-runtime
-[doc-client]:https://godoc.org/github.com/kubernetes-sigs/controller-runtime/pkg/client#Client
-[doc-split-client]:https://godoc.org/github.com/kubernetes-sigs/controller-runtime/pkg/client#DelegatingClient
-[doc-client-constr]:https://godoc.org/github.com/kubernetes-sigs/controller-runtime/pkg/client#New
+[doc-client]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#Client
+[doc-split-client]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#DelegatingClient
+[doc-client-constr]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client#New
 [code-scheme-default]:https://github.com/kubernetes-sigs/controller-runtime/blob/master/pkg/client/client.go#L51
-[doc-k8s-core]:https://godoc.org/k8s.io/api/core/v1
-[doc-reconcile-reconciler]:https://godoc.org/github.com/kubernetes-sigs/controller-runtime/pkg/reconcile#Reconciler
+[doc-k8s-core]:https://pkg.go.dev/k8s.io/api/core/v1
+[doc-reconcile-reconciler]:https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/reconcile#Reconciler
 [doc-osdk-handle]:https://github.com/operator-framework/operator-sdk/blob/master/design/milestone-0.0.2/action-api.md#handler
-[doc-types-nsname]:https://godoc.org/k8s.io/apimachinery/pkg/types#NamespacedName
+[doc-types-nsname]:https://pkg.go.dev/k8s.io/apimachinery/pkg/types#NamespacedName
 [cr-status-subresource]:https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#status-subresource

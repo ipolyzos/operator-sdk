@@ -52,8 +52,8 @@ spec:
 - Ensure that you checked the [Can I customize the projects initialized with operator-sdk?][faq] and understand the [Project Layout][project-layout] before starting to do your customizations as please you on top.
 - If you will integrate your project with OLM then, also check its [Best Practices][olm-best-practices] section.
  
-[env-test]: https://godoc.org/sigs.k8s.io/controller-runtime/pkg/envtest
-[scorecard]: /docs/advanced-topics/scorecard/
+[env-test]: https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/envtest
+[scorecard]: /docs/testing-operators/scorecard/
 [testing-with-envtest]: /docs/building-operators/golang/testing
 [olm-best-practices]: https://olm.operatorframework.io/docs/best-practices/
 [finalizers]: /docs/building-operators/golang/advanced-topics/#handle-cleanup-on-deletion
@@ -68,4 +68,4 @@ spec:
 [molecule]: https://molecule.readthedocs.io/en/latest/
 [molecule-tests]: /docs/building-operators/ansible/testing-guide
 [helm-chart-tests]: https://helm.sh/docs/topics/chart_tests/
-[envtest]: https://godoc.org/sigs.k8s.io/controller-runtime/pkg/envtest
+[envtest]: https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/envtest

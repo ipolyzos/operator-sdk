@@ -30,9 +30,6 @@ import (
 
 const (
 	longHelp = `
-Note: while the package manifests format is not yet deprecated, the operator-framework is migrated
-towards using bundles by default. Run 'operator-sdk generate bundle -h' for more information.
-
 This command generates a set of manifests in a versioned directory and a package manifest file for
 your operator. Each versioned directory consists of a ClusterServiceVersion (CSV), CustomResourceDefinitions (CRDs),
 and manifests not part of the CSV but required by the operator.
@@ -210,7 +207,8 @@ func (c packagemanifestsCmd) run() error {
 	}
 
 	if c.updateObjects {
-		objs := genutil.GetManifestObjects(col)
+		// Extra ServiceAccounts not supported by this command.
+		objs := genutil.GetManifestObjects(col, nil)
 		if c.stdout {
 			if err := genutil.WriteObjects(stdout, objs...); err != nil {
 				return err
